@@ -1,0 +1,31 @@
+<%- include("partials/header"); -%>
+<div class="center">
+    <h1>Sign Up</h1>
+    <form method="post" action="/">
+        <div class="txt_field">
+            <input type="text" required name="Num">
+            <span></span>
+            <label>Mobile Number</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" required name="pass">
+            <span></span>
+            <label>Password</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" required name="pass2">
+            <span></span>
+            <label>Confirm Password</label>
+        </div>
+        <div class="checkbox">
+            <input type="checkbox" id="check" value="True">
+            <label for="check">I am a cab driver</label>
+
+        </div>
+        <input type="submit" value = "Sign Up">
+        <div class="signup">
+            <a href="/signin">Login Instead</a>
+        </div>
+    </form>
+</div>
+<%- include("partials/footer"); -%>

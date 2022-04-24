@@ -1,0 +1,31 @@
+<%- include("partials/header"); -%>
+<%- include("partials/navbar"); -%>
+
+<section class="container-fluid sec">
+    <div class="row container-fluid  w-100 h-100">
+        <div class="col-xs-6 w-75 h-100 " style="background-color: blueviolet;">
+        <h1></h1></div>
+    <div class="col-xs-6 w-25 h-100" style="background-color: aquamarine; z-index: 1;">
+    <h1>Select Car</h1>
+    <div class="btn-group flex-container" role="group" aria-label="Basic radio toggle button group">
+        <form method="post" action="/book_car">
+            <input type="radio flexx" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn flexx" for="btnradio1" name="rad1">Radio 1</label>
+        
+            <input type="radio flexx" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn flexx" for="btnradio2">Radio 2
+                <br><small style="align-content: flex-start;">text</small>
+            </label>
+        
+            <input type="radio flexx" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn flexx" for="btnradio3">Radio 3</label>
+            <button type="submit">Book</button>
+            
+        </form>
+        
+      </div>
+    </div>
+    
+    
+</section>
+<%- include("partials/footer"); -%> 
