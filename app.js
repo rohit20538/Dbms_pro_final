@@ -2,22 +2,49 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
+const sql=require('mysql2');
 
+////
+
+var con=sql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Aziz@mysql2020485',
+    database:'uber',
+    port:'3306'
+})
 
 const app = express();
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({extended: true}));
+
+var parser=bodyParser.urlencoded({ extended: true})
+
+
+
+
+///
 app.use(express.static("public"));
 
 app.get("/", function(req,res){
     res.render("signup");
 });
-app.post("/", function(req,res){
-    console.log(req.body.pass);
+app.post('/',parser,function(req,res){
+    var email = req.body.Email;
+    var name = req.body.name;
+    var pass = req.body.pass;
+    var phone = req.body.Num;
+    console.log(req.body)
+    var sql = `INSERT INTO rider (Lr_ID, Email,Phone, Name,Password) VALUES (100, "${email}", "${phone}","${name}",${pass})`;
+    con.query(sql, function(err, result) {
+    if (err) throw err;
+    console.log('record inserted');
+    res.render("home")
+  });
 })
 
 app.get("/signin", function(req,res){
+
     res.render("signin");
 })
 app.post("/signin", function(req,res){
@@ -25,7 +52,7 @@ app.post("/signin", function(req,res){
     res.render("home")
 })
 app.get("/home", function(req,res){
-    res.render("home");
+    res.render("home"); 
 })
 app.post("/home", function(req,res){
     res.render("book_car")
