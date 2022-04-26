@@ -21,11 +21,12 @@ app.set('view engine', 'ejs');
 var parser=bodyParser.urlencoded({ extended: true})
 
 
+//
+//
+// format for get sql data 
 
-
-///
+//
 app.use(express.static("public"));
-
 app.get("/", function(req,res){
     res.render("signup");
 });
@@ -42,7 +43,7 @@ app.post('/',parser,function(req,res){
     res.render("home")
   });
 })
-
+//
 app.get("/signin", function(req,res){
 
     res.render("signin");
@@ -50,6 +51,18 @@ app.get("/signin", function(req,res){
 app.post("/signin", function(req,res){
     console.log(req.body.numl)
     res.render("home")
+})
+app.get("/home/:u", function(req,res){
+    const {u}=req.params;
+    let sql=`SELECT * FROM rider WHERE R_ID = "${u}"`
+    con.query(sql, function(err, result) {
+        if (err) throw err;
+        const ress=JSON.stringify(result);
+        
+        console.log( ress );
+        console.log(result[0].Email);
+        res.render('u',{ ...result[0] });
+    });
 })
 app.get("/home", function(req,res){
     res.render("home"); 
