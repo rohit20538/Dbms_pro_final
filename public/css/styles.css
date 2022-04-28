@@ -153,7 +153,7 @@ button:hover{
 }
 
 /* cars.html */
-.float-child{
+float-child{
     width: 50%;
     height: 100%;
     float: left;
