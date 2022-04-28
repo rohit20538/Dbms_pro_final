@@ -1,12 +1,29 @@
 <%- include("partials/header"); -%>
 <div class="center">
+    <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .Rrrrr { font: italic 40px serif; fill: navy; }
+        </style>
+        <text x="65" y="55" class="Rrrrr">RAAH!</text>
+    </svg>
     <h1>Sign Up</h1>
     <form method="post" action="/">
         <div class="txt_field">
-            <input type="text" required name="Num">
+            <input type="text" required name="urname">
+            <span></span>
+            <label>Name</label>
+        </div>
+        <div class="txt_field">
+            <input type="number" required name="mob_no">
             <span></span>
             <label>Mobile Number</label>
         </div>
+        <div class="txt_field">
+            <input type="email" required name="mail">
+            <span></span>
+            <label>Email</label>
+        </div>
+        
         <div class="txt_field">
             <input type="password" required name="pass">
             <span></span>
